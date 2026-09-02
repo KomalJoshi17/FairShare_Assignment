@@ -1,4 +1,5 @@
 # FairShare
+**Deployed Link ->** `https://fair-share-assignment.vercel.app/` 
 
 FairShare helps a group of friends share costs on a trip.
 
