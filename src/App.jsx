@@ -93,10 +93,14 @@ export default function App() {
           <ExpenseList
             expenses={filtered}
             members={state.members}
-            onDeleteAt={(index) => dispatch({ type: "DELETE_EXPENSE", index })}
-            onUpdateAt={(index, patch) =>
-              dispatch({ type: "UPDATE_EXPENSE", index, patch })
-            }
+            onDeleteAt={(expenseId) => {
+              const index = state.expenses.findIndex(e => e.id === expenseId);
+              if (index >= 0) dispatch({ type: "DELETE_EXPENSE", index });
+            }}
+            onUpdateAt={(expenseId, patch) => {
+              const index = state.expenses.findIndex(e => e.id === expenseId);
+              if (index >= 0) dispatch({ type: "UPDATE_EXPENSE", index, patch });
+            }}
           />
         </div>
         <div className="stack">
